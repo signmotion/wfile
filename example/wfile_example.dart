@@ -3,6 +3,6 @@
 import 'package:wfile/wfile.dart';
 
 void main() {
-  final f = WFile('data');
+  final f = WFile('example/data');
   print(f.readAsText('happy.txt'));
 }
