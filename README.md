@@ -12,8 +12,8 @@ const sourcePath = 'path/prefix';
 final f = WFile(sourcePath);
 
 // get a varios content from files with respect to [sourcePath]
-content = f.readAsBytes('bytes.bin');
 content = f.readAsText('text.txt');
+content = f.readAsBytes('bytes.bin');
 content = f.readAsImage('images/happy.png'); // -> path/prefix/images/happy.png
 content = f.readAsJsonMap('map.json');       // -> { ... }
 content = f.readAsJsonList('list.json');     // -> [ ... ]
