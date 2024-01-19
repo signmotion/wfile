@@ -1,0 +1,27 @@
+name: wfile
+description: A package for convenient work with files and their contents across multiple platforms.
+repository: https://github.com/signmotion/wfile
+
+topics:
+  - files
+  - content
+  - loader
+  - filesystem
+  - crossplatform
+
+# Format:
+#   version: major.minor.patch
+# You can calculate the number version code by this formula:
+#   code = m[A]jor * 100 * 100 + m[I]nor * 100 + [P]atch
+# Otherwise: +AAIIPP
+version: 0.1.0
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  image: ^4.1.4
+  test: ^1.25.1
+
+dev_dependencies:
+  lints: ^3.0.0
