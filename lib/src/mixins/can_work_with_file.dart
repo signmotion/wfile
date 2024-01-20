@@ -101,6 +101,11 @@ mixin CanWorkWithFile on Object {
     return file.existsSync() ? file.readAsStringSync() : null;
   }
 
+  XmlDocument? readAsXml([String? pathToFile]) {
+    final s = readAsText();
+    return s == null ? null : XmlDocument.parse(s);
+  }
+
   void writeAsBytes(Uint8List bytes, [String? pathToFile]) {
     final pf = ph.join(path, pathToFile);
     if (pathToFile != null) {
@@ -130,6 +135,13 @@ mixin CanWorkWithFile on Object {
     }
     File(pf).writeAsStringSync(text);
   }
+
+  void writeAsXml(
+    XmlDocument xml, [
+    String? pathToFile,
+    bool pretty = false,
+  ]) =>
+      writeAsText(xml.toXmlString(pretty: pretty));
 
   String _anyTypeToString(dynamic v) => v.toString();
 }
