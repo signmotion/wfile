@@ -14,6 +14,9 @@ mixin CanWorkWithFile on Object {
     _path = _sanitizePath(v);
   }
 
+  /// If `true` returns `null` when a requested file not found.
+  bool get exceptionWhenFileNotExists => false;
+
   static String _sanitizePath(String v) =>
       ph.joinAll(v.trim().npath.split(PathStringExt.pathSeparator));
 
@@ -40,26 +43,28 @@ mixin CanWorkWithFile on Object {
     Directory(dir).createSync(recursive: true);
   }
 
-  /// Exists a file or directory.
-  bool exists([
-    String? path1,
-    String? path2,
-    String? path3,
-    String? path4,
-    String? path5,
-  ]) {
-    final p = ph.join(path1 ?? '', path2, path3, path4, path5);
-    return existsFile(p) || existsDir(p);
+  String join(dynamic anyPath, [bool withPrefix = true]) {
+    final p = switch (anyPath) {
+      (String s) => s,
+      (Iterable<String> l) => ph.joinAll(l),
+      null => null,
+      _ => throw ArgumentError('Should be `String` or `Iterable<String>`.'),
+    };
+
+    return withPrefix ? ph.join(path, p) : p!;
   }
 
-  bool existsDir([String? pathToDir]) =>
-      Directory(ph.join(path, pathToDir)).existsSync();
+  /// Exists a file or directory.
+  /// [path] can be [String] or [Iterable<String>].
+  bool existsAny([dynamic path]) => existsFile(path) || existsDir(path);
 
-  bool existsFile([String? pathToFile]) =>
-      File(ph.join(path, pathToFile)).existsSync();
+  bool existsDir([dynamic pathToDir]) =>
+      Directory(join(pathToDir)).existsSync();
 
-  Uint8List readAsBytes([String? pathToFile]) =>
-      File(ph.join(path, pathToFile)).readAsBytesSync();
+  bool existsFile([dynamic pathToFile]) => File(join(pathToFile)).existsSync();
+
+  Uint8List? readAsBytes([String? pathToFile]) =>
+      readOrDefaults(pathToFile, (file) => file.readAsBytesSync());
 
   JsonMap? readAsJsonMap([String? pathToFile]) =>
       readAsText(pathToFile)?.jsonMap;
@@ -86,24 +91,37 @@ mixin CanWorkWithFile on Object {
   /// channel.
   /// If [alpha] is not provided, then the [maxChannelValue] will be used to
   /// set the alpha.
-  Image readAsImage({String? pathToFile, int? numChannels, num? alpha}) {
-    // use filename extension to determine the decoder
-    final image =
-        decodeNamedImage(ph.join(path, pathToFile), readAsBytes(pathToFile))!;
+  Image? readAsImage(String? pathToFile, {int? numChannels, num? alpha}) =>
+      readOrDefaults(
+        pathToFile,
+        (file) {
+          final bytes = file.readAsBytesSync();
+          // use filename extension to determine the decoder
+          final image = decodeNamedImage(ph.join(path, pathToFile), bytes)!;
 
-    return numChannels == null && alpha == null
-        ? image
-        : image.convert(numChannels: numChannels, alpha: alpha);
-  }
+          return numChannels == null && alpha == null
+              ? image
+              : image.convert(numChannels: numChannels, alpha: alpha);
+        },
+      );
 
-  String? readAsText([String? pathToFile]) {
+  String? readAsText([String? pathToFile]) =>
+      readOrDefaults(pathToFile, (file) => file.readAsStringSync());
+
+  XmlDocument? readAsXml([String? pathToFile]) => readOrDefaults(
+        pathToFile,
+        (file) => XmlDocument.parse(file.readAsStringSync()),
+      );
+
+  T? readOrDefaults<T>(
+    String? pathToFile,
+    T Function(File) reader, {
+    T? defaults,
+  }) {
     final file = File(ph.join(path, pathToFile));
-    return file.existsSync() ? file.readAsStringSync() : null;
-  }
-
-  XmlDocument? readAsXml([String? pathToFile]) {
-    final s = readAsText();
-    return s == null ? null : XmlDocument.parse(s);
+    return exceptionWhenFileNotExists || file.existsSync()
+        ? reader(file)
+        : defaults;
   }
 
   void writeAsBytes(Uint8List bytes, [String? pathToFile]) {

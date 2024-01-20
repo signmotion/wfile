@@ -1,13 +1,20 @@
 part of '../wfile.dart';
 
 class WFile with CanWorkWithFile {
-  WFile(String path, {bool createPathIfNotExists = false}) {
-    this.path = path;
+  WFile(
+    dynamic path, {
+    bool createPathIfNotExists = false,
+    this.exceptionWhenFileNotExists = false,
+  }) {
+    this.path = join(path, false);
 
     if (createPathIfNotExists) {
       counstructPath();
     }
   }
+
+  @override
+  final bool exceptionWhenFileNotExists;
 
   static const pathSeparator = CanWorkWithFile.pathSeparator;
 }

@@ -7,7 +7,7 @@ mixin ReadFileAsImage on CanWorkWithFile {
   Image? _image;
 
   Image? get image =>
-      _image ??= readAsImage(numChannels: numChannels, alpha: alpha);
+      _image ??= readAsImage(null, numChannels: numChannels, alpha: alpha);
 
   set image(Image? v) => _image = v;
 }
