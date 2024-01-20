@@ -41,7 +41,7 @@ mixin CanWorkWithFile on Object {
   }
 
   /// Exists a file or directory.
-  bool existsSync([
+  bool exists([
     String? path1,
     String? path2,
     String? path3,
@@ -49,13 +49,13 @@ mixin CanWorkWithFile on Object {
     String? path5,
   ]) {
     final p = ph.join(path1 ?? '', path2, path3, path4, path5);
-    return existsFileSync(p) || existsDirSync(p);
+    return existsFile(p) || existsDir(p);
   }
 
-  bool existsDirSync([String? pathToDir]) =>
+  bool existsDir([String? pathToDir]) =>
       Directory(ph.join(path, pathToDir)).existsSync();
 
-  bool existsFileSync([String? pathToFile]) =>
+  bool existsFile([String? pathToFile]) =>
       File(ph.join(path, pathToFile)).existsSync();
 
   Uint8List readAsBytes([String? pathToFile]) =>
