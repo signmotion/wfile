@@ -9,15 +9,17 @@ Independent of the various system delimiters.
 
 ```dart
 const sourcePath = 'path/prefix';
+// const sourcePath = ['path', 'prefix'];
 final f = WFile(sourcePath);
 
 // get a varios content from files with respect to [sourcePath]
 content = f.readAsText('text.txt');
 content = f.readAsBytes('bytes.bin');
-content = f.readAsImage('images/happy.png'); // -> path/prefix/images/happy.png
-content = f.readAsJsonMap('map.json');       // <- { ... }
-content = f.readAsJsonList('list.json');     // <- [ ... ]
-content = f.readAsXml('data.xml');           // <- <data attr="...">...</data>
+content = f.readAsImage('images/1/happy.png');       // -> path/prefix/images/happy.png
+content = f.readAsImage(['images', 1, 'happy.png']); // -> path/prefix/images/happy.png
+content = f.readAsJsonMap('map.json');               // <- { ... }
+content = f.readAsJsonList('list.json');             // <- [ ... ]
+content = f.readAsXml('data.xml');                   // <- <data attr="...">...</data>
 
 // in same way we can use [writeAs*] methods
 ```
