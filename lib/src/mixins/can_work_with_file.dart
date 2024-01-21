@@ -3,11 +3,12 @@ part of '../../wfile.dart';
 mixin CanWorkWithFile on Object {
   late final String _path;
 
-  /// Path with system delimiter.
+  /// Path with a system separator.
+  /// See [spathSeparator].
   String get path => _path;
 
-  set path(String v) {
-    assert(v.isNotEmpty);
+  set path(dynamic v) {
+    assert(v != null);
 
     _path = _sanitizePath(v);
   }
@@ -15,8 +16,8 @@ mixin CanWorkWithFile on Object {
   /// If `true` returns `null` when a requested file not found.
   bool get exceptionWhenFileNotExists => false;
 
-  static String _sanitizePath(String v) =>
-      ph.joinAll(v.trim().npath.pathToList);
+  static String _sanitizePath(dynamic v) =>
+      ph.joinAll(_joinWithoutPrefix(v)?.trim().npath.pathToList ?? []);
 
   /// Normalized path.
   /// See [PathStringExt.npath].
@@ -30,16 +31,17 @@ mixin CanWorkWithFile on Object {
     Directory(dir).createSync(recursive: true);
   }
 
-  String join(dynamic anyPath, [bool withPrefix = true]) {
-    final p = switch (anyPath) {
-      (String s) => s,
-      (Iterable<String> l) => ph.joinAll(l),
-      null => null,
-      _ => throw ArgumentError('Should be `String` or `Iterable<String>`.'),
-    };
+  String join(dynamic anyPath, [bool withPrefix = true]) => withPrefix
+      ? ph.join(path, _joinWithoutPrefix(anyPath))
+      : _joinWithoutPrefix(anyPath) ?? '';
 
-    return withPrefix ? ph.join(path, p) : p!;
-  }
+  static String? _joinWithoutPrefix(dynamic anyPath) => switch (anyPath) {
+        (String s) => s,
+        (Iterable<String> l) => ph.joinAll(l),
+        (Iterable<dynamic> l) => ph.joinAll(l.map((v) => _anyTypeToString(v))),
+        (null) => null,
+        (dynamic s) => _anyTypeToString(s),
+      };
 
   /// Exists a file or directory.
   /// [path] can be [String] or [Iterable<String>].
@@ -50,26 +52,26 @@ mixin CanWorkWithFile on Object {
 
   bool existsFile([dynamic pathToFile]) => File(join(pathToFile)).existsSync();
 
-  Uint8List? readAsBytes([String? pathToFile]) =>
+  Uint8List? readAsBytes([dynamic pathToFile]) =>
       readOrDefaults(pathToFile, (file) => file.readAsBytesSync());
 
-  JsonMap? readAsJsonMap([String? pathToFile]) =>
+  JsonMap? readAsJsonMap([dynamic pathToFile]) =>
       readAsText(pathToFile)?.jsonMap;
 
-  Map<String, String>? readAsJsonMapString([String? pathToFile]) =>
+  Map<String, String>? readAsJsonMapString([dynamic pathToFile]) =>
       readAsJsonMap(pathToFile)
           ?.map((k, v) => MapEntry(k, _anyTypeToString(v)));
 
-  Map<String, T>? readAsJsonMapT<T>([String? pathToFile]) =>
+  Map<String, T>? readAsJsonMapT<T>([dynamic pathToFile]) =>
       readAsJsonMap(pathToFile)?.map((k, v) => MapEntry(k, v as T));
 
-  JsonList? readAsJsonList([String? pathToFile]) =>
+  JsonList? readAsJsonList([dynamic pathToFile]) =>
       readAsText(pathToFile)?.jsonList;
 
-  List<String>? readAsJsonListString([String? pathToFile]) =>
+  List<String>? readAsJsonListString([dynamic pathToFile]) =>
       readAsJsonList(pathToFile)?.map((v) => _anyTypeToString(v)).toList();
 
-  List<T>? readAsJsonListT<T>([String? pathToFile]) =>
+  List<T>? readAsJsonListT<T>([dynamic pathToFile]) =>
       readAsJsonList(pathToFile)?.map((v) => v as T).toList();
 
   /// Read image and can get a guarantee an alpha channel.
@@ -78,13 +80,14 @@ mixin CanWorkWithFile on Object {
   /// channel.
   /// If [alpha] is not provided, then the [maxChannelValue] will be used to
   /// set the alpha.
-  Image? readAsImage(String? pathToFile, {int? numChannels, num? alpha}) =>
+  Image? readAsImage(dynamic pathToFile, {int? numChannels, num? alpha}) =>
       readOrDefaults(
         pathToFile,
         (file) {
           final bytes = file.readAsBytesSync();
           // use filename extension to determine the decoder
-          final image = decodeNamedImage(ph.join(path, pathToFile), bytes)!;
+          final image =
+              decodeNamedImage(ph.join(path, join(pathToFile)), bytes)!;
 
           return numChannels == null && alpha == null
               ? image
@@ -92,35 +95,35 @@ mixin CanWorkWithFile on Object {
         },
       );
 
-  String? readAsText([String? pathToFile]) =>
+  String? readAsText([dynamic pathToFile]) =>
       readOrDefaults(pathToFile, (file) => file.readAsStringSync());
 
-  XmlDocument? readAsXml([String? pathToFile]) => readOrDefaults(
+  XmlDocument? readAsXml([dynamic pathToFile]) => readOrDefaults(
         pathToFile,
         (file) => XmlDocument.parse(file.readAsStringSync()),
       );
 
   T? readOrDefaults<T>(
-    String? pathToFile,
+    dynamic pathToFile,
     T Function(File) reader, {
     T? defaults,
   }) {
-    final file = File(ph.join(path, pathToFile));
+    final file = File(ph.join(path, join(pathToFile)));
     return exceptionWhenFileNotExists || file.existsSync()
         ? reader(file)
         : defaults;
   }
 
-  void writeAsBytes(Uint8List bytes, [String? pathToFile]) {
-    final pf = ph.join(path, pathToFile);
+  void writeAsBytes(Uint8List bytes, [dynamic pathToFile]) {
+    final pf = ph.join(path, join(pathToFile));
     if (pathToFile != null) {
       counstructPathToFile(pf);
     }
     File(pf).writeAsBytesSync(bytes);
   }
 
-  void writeAsImage(Image image, [String? pathToFile]) {
-    final pf = ph.join(path, pathToFile);
+  void writeAsImage(Image image, [dynamic pathToFile]) {
+    final pf = ph.join(path, join(pathToFile));
     if (pathToFile != null) {
       counstructPathToFile(pf);
     }
@@ -133,8 +136,8 @@ mixin CanWorkWithFile on Object {
     File(pf).writeAsBytesSync(bytes);
   }
 
-  void writeAsText(String text, [String? pathToFile]) {
-    final pf = ph.join(path, pathToFile);
+  void writeAsText(String text, [dynamic pathToFile]) {
+    final pf = ph.join(path, join(pathToFile));
     if (pathToFile != null) {
       counstructPathToFile(pf);
     }
@@ -143,10 +146,10 @@ mixin CanWorkWithFile on Object {
 
   void writeAsXml(
     XmlDocument xml, [
-    String? pathToFile,
+    dynamic pathToFile,
     bool pretty = false,
   ]) =>
       writeAsText(xml.toXmlString(pretty: pretty));
 
-  String _anyTypeToString(dynamic v) => v.toString();
+  static String _anyTypeToString(dynamic v) => v.toString();
 }

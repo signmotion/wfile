@@ -1,6 +1,7 @@
 part of '../wfile.dart';
 
 class WFile with CanWorkWithFile {
+  /// [path] Can be [String] or [Iterable<String>].
   WFile(
     dynamic path, {
     bool createPathIfNotExists = false,

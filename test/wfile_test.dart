@@ -15,11 +15,14 @@ void main() {
     expect(f.existsDir('a'), isTrue);
     expect(f.existsFile('a'), isFalse);
 
-    expect(f.existsAny('a/underwater.webp'), isTrue);
-    expect(f.existsDir('a/underwater.webp'), isFalse);
-    expect(f.existsFile('a/underwater.webp'), isTrue);
+    expect(f.existsAny('a/image.webp'), isTrue);
+    expect(f.existsAny(['a', 'image.webp']), isTrue);
+    expect(f.existsDir('a/image.webp'), isFalse);
+    expect(f.existsDir(['a', 'image.webp']), isFalse);
+    expect(f.existsFile('a/image.webp'), isTrue);
+    expect(f.existsFile(['a', 'image.webp']), isTrue);
 
-    expect(f.existsAny(['a', 'underwater.webp']), isTrue);
+    expect(f.existsAny(['a', 'image.webp']), isTrue);
   });
 
   test('exists path, Windows separators', () {
@@ -33,9 +36,9 @@ void main() {
     expect(f.existsDir('a'), isTrue);
     expect(f.existsFile('a'), isFalse);
 
-    expect(f.existsAny('a\\underwater.webp'), isTrue);
-    expect(f.existsDir('a\\underwater.webp'), isFalse);
-    expect(f.existsFile('a\\underwater.webp'), isTrue);
+    expect(f.existsAny('a\\image.webp'), isTrue);
+    expect(f.existsDir('a\\image.webp'), isFalse);
+    expect(f.existsFile('a\\image.webp'), isTrue);
   });
 
   test('exists path, mixed separators', () {
@@ -45,9 +48,27 @@ void main() {
     expect(f.existsDir(), isTrue);
     expect(f.existsFile(), isFalse);
 
-    expect(f.existsAny('a\\underwater.webp'), isTrue);
-    expect(f.existsDir('a\\underwater.webp'), isFalse);
-    expect(f.existsFile('a\\underwater.webp'), isTrue);
+    expect(f.existsAny('a\\image.webp'), isTrue);
+    expect(f.existsDir('a\\image.webp'), isFalse);
+    expect(f.existsFile('a\\image.webp'), isTrue);
+  });
+
+  test('exists path, constructing a path from list', () {
+    final f = WFile(['test', 'data']);
+
+    expect(f.existsAny(), isTrue);
+    expect(f.existsDir(), isTrue);
+    expect(f.existsFile(), isFalse);
+
+    expect(f.existsAny('a'), isTrue);
+    expect(f.existsDir('a'), isTrue);
+    expect(f.existsFile('a'), isFalse);
+
+    expect(f.existsAny(['a/image.webp']), isTrue);
+    expect(f.existsDir(['a/image.webp']), isFalse);
+    expect(f.existsFile(['a/image.webp']), isTrue);
+
+    expect(f.existsAny(['a', 'image.webp']), isTrue);
   });
 
   test('checking a normalized path, mixed separators', () {
@@ -59,35 +80,32 @@ void main() {
     expect(f.npath, path.npath);
   });
 
-  test('constructing a path from list', () {
-    final f = WFile(['test', 'data']);
-
-    expect(f.existsAny(), isTrue);
-    expect(f.existsDir(), isTrue);
-    expect(f.existsFile(), isFalse);
-
-    expect(f.existsAny('a'), isTrue);
-    expect(f.existsDir('a'), isTrue);
-    expect(f.existsFile('a'), isFalse);
-
-    expect(f.existsAny(['a/underwater.webp']), isTrue);
-    expect(f.existsDir(['a/underwater.webp']), isFalse);
-    expect(f.existsFile(['a/underwater.webp']), isTrue);
-
-    expect(f.existsAny(['a', 'underwater.webp']), isTrue);
-  });
-
   test('null then file not exists', () {
     final f = WFile('undefined/path');
 
-    expect(f.readAsBytes('data.bin'), isNull);
-    expect(f.readAsJsonMap('map.json'), isNull);
-    expect(f.readAsJsonMapString('map.json'), isNull);
-    expect(f.readAsJsonList('list.json'), isNull);
-    expect(f.readAsJsonListString('list.json'), isNull);
-    expect(f.readAsImage('image.webp'), isNull);
-    expect(f.readAsText('file.txt'), isNull);
-    expect(f.readAsXml('file.xml'), isNull);
+    expect(f.readAsBytes('a/data.bin'), isNull);
+    expect(f.readAsBytes(['a', 'data.bin']), isNull);
+
+    expect(f.readAsJsonMap('a/map.json'), isNull);
+    expect(f.readAsJsonMap(['a', 'map.json']), isNull);
+
+    expect(f.readAsJsonMapString('a/map.json'), isNull);
+    expect(f.readAsJsonMapString(['a', 'map.json']), isNull);
+
+    expect(f.readAsJsonList('a/list.json'), isNull);
+    expect(f.readAsJsonList(['a', 'list.json']), isNull);
+
+    expect(f.readAsJsonListString('a/list.json'), isNull);
+    expect(f.readAsJsonListString(['a', 'list.json']), isNull);
+
+    expect(f.readAsImage('a/image.webp'), isNull);
+    expect(f.readAsImage(['a', 'image.webp']), isNull);
+
+    expect(f.readAsText('a/file.txt'), isNull);
+    expect(f.readAsText(['a', 'file.txt']), isNull);
+
+    expect(f.readAsXml('a/file.xml'), isNull);
+    expect(f.readAsXml(['a', 'file.xml']), isNull);
   });
 
   test('exception then file not exists', () {

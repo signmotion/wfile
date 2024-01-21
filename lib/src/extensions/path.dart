@@ -1,15 +1,19 @@
 part of '../../wfile.dart';
 
-const pathSeparator = '/';
+/// Defined separator for path.
+const npathSeparator = '/';
+
+/// System separator for path.
+final spathSeparator = ph.separator;
 
 extension PathStringExt on String {
   /// Normalized path.
-  /// System depends separators replaced to [pathSeparator].
-  String get npath => replaceAll('\\', pathSeparator);
+  /// System depends separators replaced to [npathSeparator].
+  String get npath => replaceAll('\\', npathSeparator);
 
-  List<String> get pathToList => npath.split(pathSeparator);
+  List<String> get pathToList => npath.split(npathSeparator);
 
-  /// A first part of path before first [pathSeparator].
+  /// A first part of path before first [npathSeparator].
   /// The string will be normalized before processing.
   String get pathHead {
     final l = npath.pathToList;
@@ -24,7 +28,7 @@ extension PathStringExt on String {
     return l.length < 2 ? '' : l.sublist(1).listToNPath;
   }
 
-  /// A part after last [pathSeparator].
+  /// A part after last [npathSeparator].
   /// The string will be normalized before processing.
   String get pathTail {
     final l = npath.pathToList;
@@ -62,9 +66,9 @@ extension PathStringExt on String {
 }
 
 extension PathListStringExt on List<String> {
-  /// Use a system separator.
+  /// Use the [spathSeparator].
   String get listToPath => ph.joinAll(this);
 
-  /// Use the [pathSeparator].
+  /// Use the [npathSeparator].
   String get listToNPath => listToPath.npath;
 }
