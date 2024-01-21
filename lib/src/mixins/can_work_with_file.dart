@@ -1,8 +1,6 @@
 part of '../../wfile.dart';
 
 mixin CanWorkWithFile on Object {
-  static const pathSeparator = PathStringExt.pathSeparator;
-
   late final String _path;
 
   /// Path with system delimiter.
@@ -18,22 +16,11 @@ mixin CanWorkWithFile on Object {
   bool get exceptionWhenFileNotExists => false;
 
   static String _sanitizePath(String v) =>
-      ph.joinAll(v.trim().npath.split(PathStringExt.pathSeparator));
+      ph.joinAll(v.trim().npath.pathToList);
 
   /// Normalized path.
   /// See [PathStringExt.npath].
   String get npath => path.npath;
-
-  String npathWithoutTail(String tail) {
-    final np = npath;
-    if (tail.isEmpty || !np.endsWith(tail)) {
-      return np;
-    }
-
-    final i = np.indexOf(tail);
-
-    return i == -1 ? np : np.substring(0, i);
-  }
 
   void counstructPath({bool? hasFile}) => counstructPathToFile(path);
 

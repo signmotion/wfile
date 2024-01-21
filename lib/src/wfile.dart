@@ -15,6 +15,4 @@ class WFile with CanWorkWithFile {
 
   @override
   final bool exceptionWhenFileNotExists;
-
-  static const pathSeparator = CanWorkWithFile.pathSeparator;
 }
