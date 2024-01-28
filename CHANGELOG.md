@@ -3,6 +3,10 @@
 All notable changes to the project `WFile` will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.2
+
+- Added examples to `README`.
+
 ## 0.3.1
 
 - Fixed an incorrect result path when a prefix available.
