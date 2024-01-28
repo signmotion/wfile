@@ -4,8 +4,11 @@
 
 The package for convenient work with files and their contents across multiple platforms.
 Independent of the various system delimiters.
+Well-tested Dart package.
 
-## Examples
+## Usage
+
+### Read Files
 
 ```dart
 const sourcePath = 'path/prefix';
@@ -20,8 +23,23 @@ content = f.readAsImage(['images', 1, 'happy.png']); // -> path/prefix/images/ha
 content = f.readAsJsonMap('map.json');               // <- { ... }
 content = f.readAsJsonList('list.json');             // <- [ ... ]
 content = f.readAsXml('data.xml');                   // <- <data attr="...">...</data>
+```
 
-// in same way we can use [writeAs*] methods
+### Write Files
+
+```dart
+const sourcePath = 'path/prefix';
+// const sourcePath = ['path', 'prefix'];
+final f = WFile(sourcePath);
+
+// get a varios content from files with respect to [sourcePath]
+f.writeAsText(content, 'text.txt');
+f.writeAsBytes(content, 'bytes.bin');
+f.writeAsImage(content, 'images/1/happy.png');       // -> path/prefix/images/happy.png
+f.writeAsImage([content, 'images', 1, 'happy.png']); // -> path/prefix/images/happy.png
+f.writeAsJsonMap(content, 'map.json');               // <- { ... }
+f.writeAsJsonList(content, 'list.json');             // <- [ ... ]
+f.writeAsXml(content, 'data.xml');                   // <- <data attr="...">...</data>
 ```
 
 ## License
