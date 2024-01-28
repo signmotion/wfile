@@ -108,7 +108,7 @@ mixin CanWorkWithFile on Object {
     T Function(File) reader, {
     T? defaults,
   }) {
-    final file = File(ph.join(path, join(pathToFile)));
+    final file = File(join(pathToFile));
     return exceptionWhenFileNotExists || file.existsSync()
         ? reader(file)
         : defaults;
