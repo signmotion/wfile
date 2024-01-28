@@ -3,6 +3,11 @@
 All notable changes to the project `WFile` will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.1
+
+- Fixed an incorrect result path when a prefix available.
+- Extended a range for a granted version of the package `path`. Reason: avoid conflicts with other packages.
+
 ## 0.3.0
 
 - Replaced `String path` to `dynamic path`. Reason: this way we can use `String` and `List` for build a path.
@@ -13,7 +18,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Shorted names for checking exist files and directories.
 - `WFile.readAsImage()` returns `null` instead of an empty image when a file not found.
 - Reinforced tests.
-- Updated README.
+- Updated `README`.
 
 ## 0.2.0
 
