@@ -150,5 +150,14 @@ mixin CanWorkWithFile on Object {
   ]) =>
       writeAsText(xml.toXmlString(pretty: pretty));
 
+  void delete([dynamic pathToFile]) {
+    final pf = join(pathToFile);
+    if (existsDir(pathToFile)) {
+      Directory(pf).deleteSync(recursive: true);
+    } else if (existsFile(pathToFile)) {
+      File(pf).deleteSync();
+    }
+  }
+
   static String _anyTypeToString(dynamic v) => v.toString();
 }
