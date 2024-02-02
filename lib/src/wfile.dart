@@ -1,10 +1,10 @@
 part of '../wfile.dart';
 
 class WFile with CanWorkWithFile {
-  /// [path] Can be [String] or [Iterable<String>].
+  /// [path] Can be [String] or [Iterable<Object>].
   WFile(
     dynamic path, {
-    bool createPathIfNotExists = false,
+    this.createPathIfNotExists = false,
     this.exceptionWhenFileNotExists = false,
   }) {
     this.path = join(path, false);
@@ -13,6 +13,8 @@ class WFile with CanWorkWithFile {
       counstructPath();
     }
   }
+
+  final bool createPathIfNotExists;
 
   @override
   final bool exceptionWhenFileNotExists;
