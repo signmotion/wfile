@@ -3,6 +3,12 @@
 All notable changes to the project `WFile` will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.3
+
+- Fixed a wrong composite path for `writeAs*()` and `readAsImage()`.
+- Updated `README`.
+- Upgraded dependencies.
+
 ## 0.3.2
 
 - Added examples to `README`.
