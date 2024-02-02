@@ -18,8 +18,8 @@ final f = WFile(sourcePath);
 // get a varios content from files with respect to [sourcePath]
 content = f.readAsText('text.txt');
 content = f.readAsBytes('bytes.bin');
-content = f.readAsImage('images/1/happy.png');       // -> path/prefix/images/happy.png
-content = f.readAsImage(['images', 1, 'happy.png']); // -> path/prefix/images/happy.png
+content = f.readAsImage('images/1/happy.png');       // -> path/prefix/images/1/happy.png
+content = f.readAsImage(['images', 1, 'happy.png']); // -> path/prefix/images/1/happy.png
 content = f.readAsJsonMap('map.json');               // <- { ... }
 content = f.readAsJsonList('list.json');             // <- [ ... ]
 content = f.readAsXml('data.xml');                   // <- <data attr="...">...</data>
@@ -35,11 +35,11 @@ final f = WFile(sourcePath);
 // get a varios content from files with respect to [sourcePath]
 f.writeAsText(content, 'text.txt');
 f.writeAsBytes(content, 'bytes.bin');
-f.writeAsImage(content, 'images/1/happy.png');       // -> path/prefix/images/happy.png
-f.writeAsImage([content, 'images', 1, 'happy.png']); // -> path/prefix/images/happy.png
-f.writeAsJsonMap(content, 'map.json');               // <- { ... }
-f.writeAsJsonList(content, 'list.json');             // <- [ ... ]
-f.writeAsXml(content, 'data.xml');                   // <- <data attr="...">...</data>
+f.writeAsImage(content, 'images/1/happy.png');       // -> path/prefix/images/1/happy.png
+f.writeAsImage([content, 'images', 1, 'happy.png']); // -> path/prefix/images/1/happy.png
+f.writeAsJsonMap(content, 'map.json');               // { ... }
+f.writeAsJsonList(content, 'list.json');             // [ ... ]
+f.writeAsXml(content, 'data.xml');                   // <data attr="...">...</data>
 ```
 
 ## License
