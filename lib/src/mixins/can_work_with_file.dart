@@ -86,8 +86,7 @@ mixin CanWorkWithFile on Object {
         (file) {
           final bytes = file.readAsBytesSync();
           // use filename extension to determine the decoder
-          final image =
-              decodeNamedImage(ph.join(path, join(pathToFile)), bytes)!;
+          final image = decodeNamedImage(join(pathToFile), bytes)!;
 
           return numChannels == null && alpha == null
               ? image
@@ -115,7 +114,7 @@ mixin CanWorkWithFile on Object {
   }
 
   void writeAsBytes(Uint8List bytes, [dynamic pathToFile]) {
-    final pf = ph.join(path, join(pathToFile));
+    final pf = join(pathToFile);
     if (pathToFile != null) {
       counstructPathToFile(pf);
     }
@@ -123,7 +122,7 @@ mixin CanWorkWithFile on Object {
   }
 
   void writeAsImage(Image image, [dynamic pathToFile]) {
-    final pf = ph.join(path, join(pathToFile));
+    final pf = join(pathToFile);
     if (pathToFile != null) {
       counstructPathToFile(pf);
     }
@@ -137,7 +136,7 @@ mixin CanWorkWithFile on Object {
   }
 
   void writeAsText(String text, [dynamic pathToFile]) {
-    final pf = ph.join(path, join(pathToFile));
+    final pf = join(pathToFile);
     if (pathToFile != null) {
       counstructPathToFile(pf);
     }
