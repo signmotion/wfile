@@ -8,6 +8,12 @@ import 'package:image/image.dart';
 import 'package:path/path.dart' as ph;
 import 'package:xml/xml.dart';
 
+part 'src/brokers/filesystem/filesystem.dart';
+part 'src/brokers/filesystem/image.dart';
+part 'src/brokers/filesystem/text.dart';
+part 'src/brokers/filesystem/xml.dart';
+part 'src/brokers/broker.dart';
+
 part 'src/extensions/json.dart';
 part 'src/extensions/path.dart';
 
