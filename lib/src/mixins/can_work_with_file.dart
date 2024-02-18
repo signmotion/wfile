@@ -55,9 +55,11 @@ mixin CanWorkWithFile on Object {
   Uint8List? readAsBytes([dynamic pathToFile]) =>
       readOrDefaults(pathToFile, (file) => file.readAsBytesSync());
 
+  /// See [readAsJsonMapT].
   JsonMap? readAsJsonMap([dynamic pathToFile]) =>
       readAsText(pathToFile)?.jsonMap;
 
+  /// See [readAsJsonMapT].
   Map<String, String>? readAsJsonMapString([dynamic pathToFile]) =>
       readAsJsonMap(pathToFile)
           ?.map((k, v) => MapEntry(k, _anyTypeToString(v)));
@@ -65,14 +67,23 @@ mixin CanWorkWithFile on Object {
   Map<String, T>? readAsJsonMapT<T>([dynamic pathToFile]) =>
       readAsJsonMap(pathToFile)?.map((k, v) => MapEntry(k, v as T));
 
+  /// See [readAsJsonListT].
   JsonList? readAsJsonList([dynamic pathToFile]) =>
       readAsText(pathToFile)?.jsonList;
 
+  /// See [readAsJsonListT].
   List<String>? readAsJsonListString([dynamic pathToFile]) =>
       readAsJsonList(pathToFile)?.map((v) => _anyTypeToString(v)).toList();
 
+  /// See [readAsJsonListListT].
   List<T>? readAsJsonListT<T>([dynamic pathToFile]) =>
       readAsJsonList(pathToFile)?.map((v) => v as T).toList();
+
+  /// See [readAsJsonListT].
+  List<List<T>>? readAsJsonListListT<T>([dynamic pathToFile]) =>
+      readAsJsonListT<List<dynamic>>(pathToFile)
+          ?.map((c) => c.map((v) => v as T).toList())
+          .toList();
 
   /// Read image and can get a guarantee an alpha channel.
   /// If the [numChannels] is 4 and the current image does not have an alpha
