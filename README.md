@@ -2,9 +2,12 @@
 
 ![Cover - WFile](https://raw.githubusercontent.com/signmotion/wfile/master/images/cover.webp)
 
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/signmotion/wfile/master/LICENSE)
+
 The package for convenient work with files and their contents across multiple platforms.
 Independent of the various system delimiters.
 Well-tested Dart package.
+Feel free to use it in your projects.
 
 ## Usage
 
@@ -42,9 +45,16 @@ f.writeAsJsonList(content, 'list.json');             // [ ... ]
 f.writeAsXml(content, 'data.xml');                   // <data attr="...">...</data>
 ```
 
-## License
+## Welcome
 
-[MIT](LICENSE)
+Requests and suggestions are warmly welcome.
+
+This package is open-source, stable and well-tested. Development happens on
+[GitHub](https://github.com/signmotion/wfile). Feel free to report issues
+or create a pull-request there.
+
+General questions are best asked on
+[StackOverflow](https://stackoverflow.com/questions/tagged/wfile).
 
 ## TODO
 
