@@ -3,6 +3,12 @@
 All notable changes to the project `WFile` will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.1
+
+- Added CI.
+- Provided badges to `README`.
+- Upgraded dependencies.
+
 ## 0.4.0
 
 - Introduced key-value brokers: `ImageFilesystemBroker`, `TextFilesystemBroker`, `XmlFilesystemBroker`, `FilesystemBroker<T>` and `Broker<K, T>`.

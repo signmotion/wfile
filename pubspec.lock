@@ -149,10 +149,10 @@ packages:
     dependency: "direct main"
     description:
       name: json_dart
-      sha256: debc7f3cfaaf81383ac1370fd435b317eca9977927b310ea8922e0e448bb3e13
+      sha256: "9ab4066092d5be0031dbc610f7b9237afd919eca4f1241c18e2dfbc0d4f47c84"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   lints:
     dependency: "direct dev"
     description:
