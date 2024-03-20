@@ -2,12 +2,15 @@
 
 ![Cover - WFile](https://raw.githubusercontent.com/signmotion/wfile/master/images/cover.webp)
 
-[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/signmotion/wfile/master/LICENSE)
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Pub Package](https://img.shields.io/badge/doc-wfile-blue)](https://pub.dartlang.org/packages/wfile)
+[![Build Status](https://github.com/signmotion/wfile/actions/workflows/dart-ci.yml/badge.svg)](https://github.com/signmotion/wfile/actions/workflows/dart-ci.yml)
+[![Publisher](https://img.shields.io/pub/publisher/wfile)](https://pub.dev/publishers/syrokomskyi.com)
 
 The package for convenient work with files and their contents across multiple platforms.
 Independent of the various system delimiters.
 Well-tested Dart package.
-Feel free to use it in your projects.
+Feel free to use it in your awesome projects.
 
 ## Usage
 
