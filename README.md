@@ -18,7 +18,7 @@ Feel free to use it in your awesome projects.
 
 | Android | iOS | Linux | MacOS | Web | Windows |              |
 | :-----: | :-: | :---: | :---: | :-: | :-----: | :----------- |
-|   ✅    | ✅  |  ✅   |  ✅   | ✅  |   ✅    | **platform** |
+|   ✅    | ✅  |  ✅   |  ✅   |  ✘  |   ✅    | **platform** |
 
 | Dart | Flutter |         |
 | :--: | :-----: | :------ |
@@ -94,6 +94,7 @@ And here is a curated list of how you can help:
 Once you start using the **WFile**, it will become easy to choose the functionality to contribute. But if you already get everything you need from this package but have some free time, let me write here what I have planned:
 
 - All feautures for this package into README.
+- Support Web platform.
 - Examples with filesystem brokers.
 - An example with creating own broker.
 
