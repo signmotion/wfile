@@ -3,6 +3,11 @@
 All notable changes to the project `WFile` will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.2
+
+- `README`. Added supported platforms, SDKs, better badges, a link to tests, and a help guide for a first-time contribution to open-source.
+- Fixed Windows delimiter path to file not being detected in Linux.
+
 ## 0.4.1
 
 - Added CI.
