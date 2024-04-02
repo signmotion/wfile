@@ -7,20 +7,20 @@ void main() {
   test('exists path, Linux separators', () {
     final f = WFile('test/data');
 
-    expect(f.existsAny(), isTrue);
     expect(f.existsDir(), isTrue);
     expect(f.existsFile(), isFalse);
+    expect(f.existsAny(), isTrue);
 
-    expect(f.existsAny('a'), isTrue);
     expect(f.existsDir('a'), isTrue);
     expect(f.existsFile('a'), isFalse);
+    expect(f.existsAny('a'), isTrue);
 
-    expect(f.existsAny('a/image.webp'), isTrue);
-    expect(f.existsAny(['a', 'image.webp']), isTrue);
     expect(f.existsDir('a/image.webp'), isFalse);
     expect(f.existsDir(['a', 'image.webp']), isFalse);
     expect(f.existsFile('a/image.webp'), isTrue);
     expect(f.existsFile(['a', 'image.webp']), isTrue);
+    expect(f.existsAny('a/image.webp'), isTrue);
+    expect(f.existsAny(['a', 'image.webp']), isTrue);
 
     expect(f.existsAny(['a', 'image.webp']), isTrue);
   });
@@ -28,45 +28,45 @@ void main() {
   test('exists path, Windows separators', () {
     final f = WFile('test\\data');
 
-    expect(f.existsAny(), isTrue);
     expect(f.existsDir(), isTrue);
     expect(f.existsFile(), isFalse);
+    expect(f.existsAny(), isTrue);
 
-    expect(f.existsAny('a'), isTrue);
     expect(f.existsDir('a'), isTrue);
     expect(f.existsFile('a'), isFalse);
+    expect(f.existsAny('a'), isTrue);
 
-    expect(f.existsAny('a\\image.webp'), isTrue);
     expect(f.existsDir('a\\image.webp'), isFalse);
     expect(f.existsFile('a\\image.webp'), isTrue);
+    expect(f.existsAny('a\\image.webp'), isTrue);
   });
 
   test('exists path, mixed separators', () {
     final f = WFile('test/data');
 
-    expect(f.existsAny(), isTrue);
     expect(f.existsDir(), isTrue);
     expect(f.existsFile(), isFalse);
+    expect(f.existsAny(), isTrue);
 
-    expect(f.existsAny('a\\image.webp'), isTrue);
     expect(f.existsDir('a\\image.webp'), isFalse);
     expect(f.existsFile('a\\image.webp'), isTrue);
+    expect(f.existsAny('a\\image.webp'), isTrue);
   });
 
   test('exists path, constructing a path from list', () {
     final f = WFile(['test', 'data']);
 
-    expect(f.existsAny(), isTrue);
     expect(f.existsDir(), isTrue);
     expect(f.existsFile(), isFalse);
+    expect(f.existsAny(), isTrue);
 
-    expect(f.existsAny('a'), isTrue);
     expect(f.existsDir('a'), isTrue);
     expect(f.existsFile('a'), isFalse);
+    expect(f.existsAny('a'), isTrue);
 
-    expect(f.existsAny(['a/image.webp']), isTrue);
     expect(f.existsDir(['a/image.webp']), isFalse);
     expect(f.existsFile(['a/image.webp']), isTrue);
+    expect(f.existsAny(['a/image.webp']), isTrue);
 
     expect(f.existsAny(['a', 'image.webp']), isTrue);
   });
