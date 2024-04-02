@@ -36,7 +36,7 @@ mixin CanWorkWithFile on Object {
       : _joinWithoutPrefix(anyPath) ?? '';
 
   static String? _joinWithoutPrefix(dynamic anyPath) => switch (anyPath) {
-        String s => _joinWithoutPrefix(ph.split(s)),
+        String s => _joinWithoutPrefix(s.trim().npath.pathToList),
         Iterable<String> l => ph.joinAll(l),
         Iterable<dynamic> l => ph.joinAll(l.map((v) => _anyTypeToString(v))),
         null => null,
