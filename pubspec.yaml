@@ -1,7 +1,7 @@
 name: wfile
-description: Convenient work with files and their content across multiple platforms.
+description: >-
+  Convenient work with files and their content across multiple platforms.
 repository: https://github.com/signmotion/wfile
-
 topics:
   - files
   - xml

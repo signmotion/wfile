@@ -3,54 +3,54 @@ import 'package:test/test.dart';
 
 void main() {
   test('npath', () {
-    expect('shine\\path\\to/file.txt'.npath, 'shine/path/to/file.txt');
+    expect(r'shine\path\to/file.txt'.npath, 'shine/path/to/file.txt');
   });
 
   test('pathToList', () {
     expect(
-      'shine\\path\\to/file.txt'.pathToList,
+      r'shine\path\to/file.txt'.pathToList,
       ['shine', 'path', 'to', 'file.txt'],
     );
   });
 
   test('pathHead', () {
-    expect('shine\\path\\to/file.txt'.pathHead, 'shine');
-    expect('\\path\\to'.pathHead, '');
+    expect(r'shine\path\to/file.txt'.pathHead, 'shine');
+    expect(r'\path\to'.pathHead, '');
     expect('file.txt'.pathHead, 'file.txt');
     expect(''.pathHead, '');
   });
 
   test('pathAfterHead', () {
-    expect('shine\\path\\to/file.txt'.pathAfterHead, 'path/to/file.txt');
-    expect('\\path\\to'.pathAfterHead, 'path/to');
-    expect('path\\to'.pathAfterHead, 'to');
+    expect(r'shine\path\to/file.txt'.pathAfterHead, 'path/to/file.txt');
+    expect(r'\path\to'.pathAfterHead, 'path/to');
+    expect(r'path\to'.pathAfterHead, 'to');
     expect('file.txt'.pathAfterHead, '');
     expect(''.pathAfterHead, '');
   });
 
   test('pathTail', () {
-    expect('shine\\path\\to/file.txt'.pathTail, 'file.txt');
-    expect('shine\\path\\to'.pathTail, 'to');
+    expect(r'shine\path\to/file.txt'.pathTail, 'file.txt');
+    expect(r'shine\path\to'.pathTail, 'to');
     expect('shine'.pathTail, 'shine');
     expect(''.pathTail, '');
   });
 
   test('pathBeforeTail', () {
-    expect('shine\\path\\to/file.txt'.pathBeforeTail, 'shine/path/to');
-    expect('shine\\path\\to/'.pathBeforeTail, 'shine/path/to');
-    expect('shine\\path'.pathBeforeTail, 'shine');
+    expect(r'shine\path\to/file.txt'.pathBeforeTail, 'shine/path/to');
+    expect(r'shine\path\to/'.pathBeforeTail, 'shine/path/to');
+    expect(r'shine\path'.pathBeforeTail, 'shine');
     expect('shine'.pathBeforeTail, '');
     expect('file.txt'.pathBeforeTail, '');
     expect(''.pathBeforeTail, '');
   });
 
   test('pathWithoutTail', () {
-    const s = 'shine\\path\\to/file.txt';
+    const s = r'shine\path\to/file.txt';
     const ns = 'shine/path/to/file.txt';
     expect(s.pathWithoutTail('to/file.txt'), 'shine/path');
-    expect(s.pathWithoutTail('to\\file.txt'), 'shine/path');
-    expect(s.pathWithoutTail('path/to\\file.txt'), 'shine');
-    expect(s.pathWithoutTail('to1\\file.txt'), ns);
+    expect(s.pathWithoutTail(r'to\file.txt'), 'shine/path');
+    expect(s.pathWithoutTail(r'path/to\file.txt'), 'shine');
+    expect(s.pathWithoutTail(r'to1\file.txt'), ns);
     expect(s.pathWithoutTail(''), ns);
 
     expect('file.txt'.pathWithoutTail('file.txt'), '');

@@ -8,7 +8,7 @@ void main() {
       ['shine', 'path', 'to', 'file.txt'].listToPath,
       ph.separator == '/'
           ? 'shine/path/to/file.txt'
-          : 'shine\\path\\to\\file.txt',
+          : r'shine\path\to\file.txt',
     );
   });
 

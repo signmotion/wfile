@@ -26,7 +26,7 @@ void main() {
   });
 
   test('exists path, Windows separators', () {
-    final f = WFile('test\\data');
+    final f = WFile(r'test\data');
 
     expect(f.existsDir(), isTrue);
     expect(f.existsFile(), isFalse);
@@ -36,9 +36,9 @@ void main() {
     expect(f.existsFile('a'), isFalse);
     expect(f.existsAny('a'), isTrue);
 
-    expect(f.existsDir('a\\image.webp'), isFalse);
-    expect(f.existsFile('a\\image.webp'), isTrue);
-    expect(f.existsAny('a\\image.webp'), isTrue);
+    expect(f.existsDir(r'a\image.webp'), isFalse);
+    expect(f.existsFile(r'a\image.webp'), isTrue);
+    expect(f.existsAny(r'a\image.webp'), isTrue);
   });
 
   test('exists path, mixed separators', () {
@@ -48,9 +48,9 @@ void main() {
     expect(f.existsFile(), isFalse);
     expect(f.existsAny(), isTrue);
 
-    expect(f.existsDir('a\\image.webp'), isFalse);
-    expect(f.existsFile('a\\image.webp'), isTrue);
-    expect(f.existsAny('a\\image.webp'), isTrue);
+    expect(f.existsDir(r'a\image.webp'), isFalse);
+    expect(f.existsFile(r'a\image.webp'), isTrue);
+    expect(f.existsAny(r'a\image.webp'), isTrue);
   });
 
   test('exists path, constructing a path from list', () {
@@ -72,7 +72,7 @@ void main() {
   });
 
   test('checking a normalized path, mixed separators', () {
-    const path = 'test/data\\a\\underwater.webp';
+    const path = r'test/data\a\underwater.webp';
     final f = WFile(path);
 
     expect(f.path, isNot(equals(path)), reason: 'Should be system dependent.');

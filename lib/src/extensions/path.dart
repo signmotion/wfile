@@ -9,7 +9,7 @@ final spathSeparator = ph.separator;
 extension PathStringExt on String {
   /// Normalized path.
   /// System depends separators replaced to [npathSeparator].
-  String get npath => replaceAll('\\', npathSeparator);
+  String get npath => replaceAll(r'\', npathSeparator);
 
   List<String> get pathToList => npath.split(npathSeparator);
 
