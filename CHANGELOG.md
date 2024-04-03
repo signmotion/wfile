@@ -3,6 +3,11 @@
 All notable changes to the project `WFile` will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.3
+
+- Added **Rationale** section to `README`. Thanks [s00prtr00pr](https://reddit.com/user/s00prtr00pr).
+- Included supported file formats to `README`.
+
 ## 0.4.2
 
 - `README`. Added supported platforms, SDKs, better badges, a link to tests, and a help guide for a first-time contribution to open-source.
