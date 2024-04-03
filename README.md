@@ -26,6 +26,35 @@ Feel free to use it in your awesome projects.
 
 Share some ❤️ and star repo to support the project.
 
+## Rationale
+
+1. We need to keep the file paths consistent in live cross-platform projects. I mean the dividers for Linux and Windows. I used to use [path](https://pub.dev/packages/path) extensively (thanks to the [authors](https://pub.dev/publishers/dart.dev/packages)), but we got some boilerplate with it.
+
+2. **WFile** contains some abstractions, for ex. `Broker`, and its implementation: `text`, `image`, `xml` for `filesystem`. It helps to share data.
+
+3. Many JSON files are very simple. I often use repetitive code to read them. You can now replace Dart's idioms with this line: `f.readAsJsonMap()` or `f.readAsJsonList()`.
+
+4. Also when reading the image file, we can get the alpha channel guarantee if it is needed.
+
+Additionally with **WFile** you can write just
+
+```dart
+f.writeAsImage(image, 'path/to.webp');
+```
+
+instead of
+
+```dart
+final encoder = findEncoderForNamedImage(p);
+if (encoder == null) {
+  throw Exception('Not found an encoder for file `$p`.');
+}
+final bytes = encoder.encode(image);
+File(p).writeAsBytesSync(bytes);
+```
+
+Thanks [s00prtr00pr](https://reddit.com/user/s00prtr00pr).
+
 ## Usage
 
 ### Read Files
