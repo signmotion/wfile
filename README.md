@@ -12,7 +12,7 @@
 [![Issues](https://img.shields.io/github/issues/signmotion/wfile?logo=github&logoColor=white)](https://github.com/signmotion/wfile/issues)
 [![Pub Score](https://img.shields.io/pub/points/wfile?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/wfile/score)
 
-The [well-tested](https://github.com/signmotion/wfile/tree/master/test) package for convenient work with files and their contents across multiple platforms.
+The [well-tested](https://github.com/signmotion/wfile/tree/master/test) package for read and write JSON, image, text, binary, XML files across multiple platforms.
 Independent of the various system delimiters.
 Feel free to use it in your awesome projects.
 
