@@ -16,13 +16,13 @@ The [well-tested](https://github.com/signmotion/wfile/tree/master/test) package 
 Independent of the various system delimiters.
 Feel free to use it in your awesome projects.
 
-| Android | iOS | Linux | MacOS | Windows |              |
-| :-----: | :-: | :---: | :---: | :-----: | :----------- |
-|   ✅    | ✅  |  ✅   |  ✅   |   ✅    | **platform** |
+| Android | iOS | Linux | MacOS | Windows |
+| :-----: | :-: | :---: | :---: | :-----: |
+|   ✅    | ✅  |  ✅   |  ✅   |   ✅    |
 
-| Dart | Flutter |         |
-| :--: | :-----: | :------ |
-|  ✅  |   ✅    | **SDK** |
+| Dart | Flutter |
+| :--: | :-----: |
+|  ✅  |   ✅    |
 
 Share some ❤️ and star repo to support the project.
 
