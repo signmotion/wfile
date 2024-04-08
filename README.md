@@ -24,6 +24,8 @@ Feel free to use it in your awesome projects.
 
 Share some ❤️ and star repo to support the project.
 
+_If you write an article about **WFile** or any of [these](https://pub.dev/packages?q=publisher%3Asyrokomskyi.com&sort=updated) packages, let me know and I'll post the URL of the article in the **README** 🤝_
+
 ## Motivation
 
 1. We need to keep the file paths consistent in live cross-platform projects. I mean the dividers for Linux and Windows. I used to use [path](https://pub.dev/packages/path) extensively (thanks to the [authors](https://pub.dev/publishers/dart.dev/packages)), but we got some boilerplate with it.
