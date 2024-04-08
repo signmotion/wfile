@@ -7,6 +7,10 @@
 [![Code Size](https://img.shields.io/github/languages/code-size/signmotion/wfile?logo=github&logoColor=white)](https://github.com/signmotion/wfile)
 [![Publisher](https://img.shields.io/pub/publisher/wfile)](https://pub.dev/publishers/syrokomskyi.com)
 
+![SDK version](https://badgen.net/pub/sdk-version/id_gen)
+![Supported platforms](https://badgen.net/pub/flutter-platform/id_gen)
+![Supported SDKs](https://badgen.net/pub/dart-platform/id_gen)
+
 [![Build Status](https://img.shields.io/github/actions/workflow/status/signmotion/wfile/dart-ci.yml?logo=github-actions&logoColor=white)](https://github.com/signmotion/wfile/actions)
 [![Pull Requests](https://img.shields.io/github/issues-pr/signmotion/wfile?logo=github&logoColor=white)](https://github.com/signmotion/wfile/pulls)
 [![Issues](https://img.shields.io/github/issues/signmotion/wfile?logo=github&logoColor=white)](https://github.com/signmotion/wfile/issues)
@@ -15,14 +19,6 @@
 The [well-tested](https://github.com/signmotion/wfile/tree/master/test) package for read and write JSON, image, text, binary, XML files across multiple platforms.
 Independent of the various system delimiters.
 Feel free to use it in your awesome projects.
-
-| Android | iOS | Linux | MacOS | Windows |
-| :-----: | :-: | :---: | :---: | :-----: |
-|   ✅    | ✅  |  ✅   |  ✅   |   ✅    |
-
-| Dart | Flutter |
-| :--: | :-----: |
-|  ✅  |   ✅    |
 
 Share some ❤️ and star repo to support the project.
 
