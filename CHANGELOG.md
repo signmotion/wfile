@@ -11,6 +11,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Provided emojis to some sections in `README`.
 - Added a quality code badge to `README`. Thanks [CodeFactor](https://codefactor.io).
 - Replaced supported platforms and SDKs to dynamic badges. Thanks [Badgen](https://badgen.net/pub).
+- Upgraded dependencies.
 
 ## 0.4.3
 
