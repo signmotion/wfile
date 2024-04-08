@@ -89,6 +89,10 @@ f.writeAsJsonList(content, 'list.json');             // [ ... ]
 f.writeAsXml(content, 'data.xml');                   // <data attr="...">...</data>
 ```
 
+## Whats New
+
+Look at [changelog](https://pub.dev/packages/wfile/changelog).
+
 ## Welcome to Inspiration
 
 Requests and suggestions are warmly welcome.
