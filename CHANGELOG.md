@@ -3,6 +3,15 @@
 All notable changes to the project `WFile` will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.4
+
+- Updated a curated list in `README`.
+- Added a link to [CodeTriangle](https://codetriage.com) in `README`.
+- Included **Whats New** section in `README`.
+- Provided emojis to some sections in `README`.
+- Added a quality code badge to `README`. Thanks [CodeFactor](https://codefactor.io).
+- Replaced supported platforms and SDKs to dynamic badges. Thanks [Badgen](https://badgen.net/pub).
+
 ## 0.4.3
 
 - Added **Rationale** section to `README`. Thanks [s00prtr00pr](https://reddit.com/user/s00prtr00pr).
