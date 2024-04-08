@@ -106,12 +106,12 @@ If this is your first contribution, I'll leave you with some of the best links I
 - [Summer Guide from Google](https://youtu.be/qGTQ7dEZXZc).
 - [CodeTriangle](https://codetriage.com) Free community tools for contributing to Open Source projects.
 
-The package **IdGen** is open-source, stable and well-tested. Development happens on
-[GitHub](https://github.com/signmotion/id_gen). Feel free to report issues
+The package **WFile** is open-source, stable and well-tested. Development happens on
+[GitHub](https://github.com/signmotion/wfile). Feel free to report issues
 or create a pull-request there.
 
 General questions are best asked on
-[StackOverflow](https://stackoverflow.com/questions/tagged/id_gen).
+[StackOverflow](https://stackoverflow.com/questions/tagged/wfile).
 
 And here is a curated list of how you can help:
 
@@ -125,7 +125,7 @@ And here is a curated list of how you can help:
 
 ## 🕧TODO (perhaps)
 
-Once you start using the **IdGen**, it will become easy to choose the functionality to contribute. But if you already get everything you need from this package but have some free time, let me write here what I have planned:
+Once you start using the **WFile**, it will become easy to choose the functionality to contribute. But if you already get everything you need from this package but have some free time, let me write here what I have planned:
 
 - All feautures for this package into README.
 - Support Web platform.
