@@ -85,6 +85,31 @@ void main() {
     expect(f.npath, path);
   });
 
+  test('exists path, constructing a path from [Directory]s and [File]', () {
+    const path = 'test/data/a/image.webp';
+    final f = WFile([
+      Directory('test/data'),
+      Directory('a'),
+      File('image.webp'),
+    ]);
+
+    expect(f.npath, path);
+  });
+
+  // test(
+  //     'exists path, constructing a path from [Directory]s, [File] and [Directory]',
+  //     () {
+  //   final ematch = throwsA(const TypeMatcher<ArgumentError>());
+  //   expect(
+  //       () => WFile([
+  //             Directory('test/data'),
+  //             Directory('a'),
+  //             File('image.webp'),
+  //             Directory('some_dir'),
+  //           ]),
+  //       ematch);
+  // });
+
   test('checking a normalized path, mixed separators', () {
     const path = r'test/data\a\underwater.webp';
     final f = WFile(path);

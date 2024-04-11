@@ -38,7 +38,9 @@ mixin CanWorkWithFile on Object {
   static String? _joinWithoutPrefix(dynamic anyPath) => switch (anyPath) {
         String s => _joinWithoutPrefix(s.trim().npath.pathToList),
         Iterable<String> l => ph.joinAll(l),
+        Iterable<FileSystemEntity> l => ph.joinAll(l.map((v) => v.path)),
         Iterable<dynamic> l => ph.joinAll(l.map((v) => _anyTypeToString(v))),
+        FileSystemEntity e => e.path,
         null => null,
         dynamic s => _anyTypeToString(s),
       };
@@ -170,5 +172,5 @@ mixin CanWorkWithFile on Object {
     }
   }
 
-  static String _anyTypeToString(dynamic v) => v.toString();
+  static String _anyTypeToString(dynamic v) => '$v';
 }

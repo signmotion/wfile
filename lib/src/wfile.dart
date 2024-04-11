@@ -7,11 +7,7 @@ class WFile with CanWorkWithFile {
     this.createPathIfNotExists = false,
     this.exceptionWhenFileNotExists = false,
   }) {
-    final pp = switch (path) {
-      FileSystemEntity r => r.path,
-      _ => path,
-    };
-    this.path = join(pp, false);
+    this.path = join(path, false);
 
     if (createPathIfNotExists) {
       counstructPath();
