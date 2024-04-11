@@ -45,6 +45,13 @@ mixin CanWorkWithFile on Object {
         dynamic s => _anyTypeToString(s),
       };
 
+  /// The part of [path] after the last separator, and without trailing
+  /// file extension.
+  String get basenameWithoutExtension => ph.basenameWithoutExtension(path);
+
+  /// The part of [path] after the last separator.
+  String get basename => ph.basename(path);
+
   /// Exists a file or directory.
   /// [path] can be [String] or [Iterable<String>].
   bool existsAny([dynamic path]) => existsFile(path) || existsDir(path);
