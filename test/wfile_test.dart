@@ -1,4 +1,4 @@
-import 'dart:io' show PathNotFoundException;
+import 'dart:io' show Directory, File, PathNotFoundException;
 
 import 'package:wfile/wfile.dart';
 import 'package:test/test.dart';
@@ -69,6 +69,20 @@ void main() {
     expect(f.existsAny(['a/image.webp']), isTrue);
 
     expect(f.existsAny(['a', 'image.webp']), isTrue);
+  });
+
+  test('exists path, constructing a path from [File]', () {
+    const path = 'test/data/a/image.webp';
+    final f = WFile(File(path));
+
+    expect(f.npath, path);
+  });
+
+  test('exists path, constructing a path from [Directory]', () {
+    const path = 'test/data/a';
+    final f = WFile(Directory(path));
+
+    expect(f.npath, path);
   });
 
   test('checking a normalized path, mixed separators', () {
