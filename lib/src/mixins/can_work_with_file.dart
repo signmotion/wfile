@@ -135,17 +135,14 @@ mixin CanWorkWithFile on Object {
 
   void writeAsBytes(Uint8List bytes, [dynamic pathToFile]) {
     final pf = join(pathToFile);
-    if (pathToFile != null) {
-      counstructPathToFile(pf);
-    }
+    counstructPathToFile(pf);
     File(pf).writeAsBytesSync(bytes);
   }
 
   void writeAsImage(Image image, [dynamic pathToFile]) {
     final pf = join(pathToFile);
-    if (pathToFile != null) {
-      counstructPathToFile(pf);
-    }
+    counstructPathToFile(pf);
+
     final encoder = findEncoderForNamedImage(pf);
     if (encoder == null) {
       throw Exception('Not found an encoder by extension for file `$pf`.');
@@ -157,9 +154,7 @@ mixin CanWorkWithFile on Object {
 
   void writeAsText(String text, [dynamic pathToFile]) {
     final pf = join(pathToFile);
-    if (pathToFile != null) {
-      counstructPathToFile(pf);
-    }
+    counstructPathToFile(pf);
     File(pf).writeAsStringSync(text);
   }
 
