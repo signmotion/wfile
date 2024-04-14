@@ -3,6 +3,14 @@
 All notable changes to the project `WFile` will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.0
+
+- Added `WFile` construct from `File` or `Directory` and iterated their variants.
+- Provided `basename` and `basenameWithoutExtension` to mixin `CanWorkWithFile` and class `WFile`.
+- Added an invitation for writers.
+- Fixed file path not being created.
+- Upgraded dependencies.
+
 ## 0.4.4
 
 - Updated a curated list in `README`.
