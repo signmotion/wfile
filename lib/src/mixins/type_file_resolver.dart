@@ -26,5 +26,21 @@ mixin TypeFileResolver on CanWorkWithFile {
 
   /// A MIME type of the file or empty string if not detected.
   /// See <https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types>.
-  String mime([dynamic pathToFile]) => lookupMimeType(join(pathToFile)) ?? '';
+  String mime([dynamic pathToFile]) {
+    final r = lookupMimeType(join(pathToFile));
+    if (r != null) {
+      return r;
+    }
+
+    // check if the file contains any non-printable characters
+    final bytes = readAsBytes(pathToFile)!;
+    for (final byte in bytes) {
+      if ((byte < 0x20 || byte > 0x7f) && ![0xa, 0xd].contains(byte)) {
+        // file is "binary"
+        return '';
+      }
+    }
+
+    return 'text';
+  }
 }

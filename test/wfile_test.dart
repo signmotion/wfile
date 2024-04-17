@@ -176,6 +176,14 @@ void main() {
       expect(f.mime('a/image.webp'), 'image/webp');
     });
 
+    test('', () {
+      expect(f.mime('a/image'), '');
+    });
+
+    test('text', () {
+      expect(f.mime('a/LICENSE'), 'text');
+    });
+
     test('text/markdown', () {
       expect(f.mime('a/README.md'), 'text/markdown');
     });
@@ -186,13 +194,24 @@ void main() {
   });
 
   group('type file detection', () {
-    test('image', () {
+    test('image.jpg', () {
       final f = WFile('test/data/a/image.jpg');
       expect(f.application(), isFalse);
       expect(f.audio(), isFalse);
       expect(f.binary(), isTrue);
       expect(f.font(), isFalse);
       expect(f.image(), isTrue);
+      expect(f.text(), isFalse);
+      expect(f.video(), isFalse);
+    });
+
+    test('image without extension', () {
+      final f = WFile('test/data/a/image');
+      expect(f.application(), isFalse);
+      expect(f.audio(), isFalse);
+      expect(f.binary(), isTrue);
+      expect(f.font(), isFalse);
+      expect(f.image(), isFalse);
       expect(f.text(), isFalse);
       expect(f.video(), isFalse);
     });
