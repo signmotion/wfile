@@ -66,13 +66,13 @@ const sourcePath = 'path/prefix';
 final f = WFile(sourcePath);
 
 // get a varios content from files with respect to [sourcePath]
-content = f.readAsText('text.txt');
-content = f.readAsBytes('bytes.bin');
-content = f.readAsImage('images/1/happy.png');       // path/prefix/images/1/happy.png
-content = f.readAsImage(['images', 1, 'happy.png']); // path/prefix/images/1/happy.png
-content = f.readAsJsonMap('map.json');               // <- { ... }
-content = f.readAsJsonList('list.json');             // <- [ ... ]
-content = f.readAsXml('data.xml');                   // <- <data attr="...">...</data>
+f.readAsText('text.txt');
+f.readAsBytes('bytes.bin');
+f.readAsImage('images/1/happy.png');       // path/prefix/images/1/happy.png
+f.readAsImage(['images', 1, 'happy.png']); // path/prefix/images/1/happy.png
+f.readAsJsonMap('map.json');               // <- { ... }
+f.readAsJsonList('list.json');             // <- [ ... ]
+f.readAsXml('data.xml');                   // <- <data attr="...">...</data>
 ```
 
 ### Write Files
