@@ -92,7 +92,7 @@ f.writeAsJsonList(content, 'list.json');             // [ ... ]
 f.writeAsXml(content, 'data.xml');                   // <data attr="...">...</data>
 ```
 
-### Identify the MIME type
+### Identify a File Type
 
 ```dart
 final f = WFile('image.webp');
@@ -104,6 +104,12 @@ f.font();        // false
 f.image();       // true
 f.text();        // false
 f.video();       // false
+```
+
+### Identify the MIME type
+
+```dart
+f.mime();  // image/webp
 ```
 
 ## Whats New
