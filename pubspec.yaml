@@ -1,6 +1,7 @@
 name: wfile
 description: >-
   Convenient work with JSON, image, text, binary files across multiple platforms.
+  Can detect MIME types.
 repository: https://github.com/signmotion/wfile
 topics:
   - files
