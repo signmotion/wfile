@@ -5,6 +5,7 @@ import 'dart:typed_data';
 
 import 'package:image/image.dart';
 import 'package:json_dart/json_dart.dart';
+import 'package:mime/mime.dart';
 import 'package:path/path.dart' as ph;
 import 'package:xml/xml.dart';
 

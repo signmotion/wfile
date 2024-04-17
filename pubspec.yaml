@@ -22,6 +22,7 @@ environment:
 dependencies:
   image: ^4.1.7
   json_dart: ^0.1.2
+  mime: ^1.0.5
   path: ">=1.8.0 <3.0.0"
   xml: ^6.5.0
 

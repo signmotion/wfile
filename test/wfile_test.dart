@@ -160,4 +160,28 @@ void main() {
     expect(() => f.readAsText('file.txt'), ematch);
     expect(() => f.readAsXml('file.xml'), ematch);
   });
+
+  group('mime', () {
+    final f = WFile('test/data');
+
+    test('image/jpeg', () {
+      expect(f.mime('a/image.jpg'), 'image/jpeg');
+    });
+
+    test('image/png', () {
+      expect(f.mime('a/image.png'), 'image/png');
+    });
+
+    test('image/webp', () {
+      expect(f.mime('a/image.webp'), 'image/webp');
+    });
+
+    test('text/markdown', () {
+      expect(f.mime('README.md'), 'text/markdown');
+    });
+
+    test('text/plain', () {
+      expect(f.mime('happy.txt'), 'text/plain');
+    });
+  });
 }
