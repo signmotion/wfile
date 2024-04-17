@@ -24,5 +24,6 @@ part 'src/mixins/read_file_as_json_list.dart';
 part 'src/mixins/read_file_as_json_map.dart';
 part 'src/mixins/read_file_as_text.dart';
 part 'src/mixins/read_file_as_xml.dart';
+part 'src/mixins/type_resolver.dart';
 
 part 'src/wfile.dart';

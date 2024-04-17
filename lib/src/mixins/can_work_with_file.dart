@@ -52,10 +52,6 @@ mixin CanWorkWithFile on Object {
   /// The part of [path] after the last separator.
   String get basename => ph.basename(path);
 
-  /// A MIME type of the file or empty string if not detected.
-  /// See <https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types>.
-  String mime([dynamic pathToFile]) => lookupMimeType(join(pathToFile)) ?? '';
-
   /// Exists a file or directory.
   /// [path] can be [String] or [Iterable<String>].
   bool existsAny([dynamic path]) => existsFile(path) || existsDir(path);

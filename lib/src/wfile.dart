@@ -1,6 +1,6 @@
 part of '../wfile.dart';
 
-class WFile with CanWorkWithFile {
+class WFile with CanWorkWithFile, TypeResolver {
   /// [path] Can be [String], [File], [Directory] or [Iterable<Object>].
   WFile(
     dynamic path, {
