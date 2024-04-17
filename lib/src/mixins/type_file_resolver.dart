@@ -1,6 +1,6 @@
 part of '../../wfile.dart';
 
-mixin TypeResolver on CanWorkWithFile {
+mixin TypeFileResolver on CanWorkWithFile {
   /// Detects application.
   bool application([dynamic pathToFile]) =>
       mime(pathToFile).startsWith('application');
