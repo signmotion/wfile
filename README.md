@@ -16,7 +16,7 @@
 [![Issues](https://img.shields.io/github/issues/signmotion/wfile?logo=github&logoColor=white)](https://github.com/signmotion/wfile/issues)
 [![Pub Score](https://img.shields.io/pub/points/wfile?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/wfile/score)
 
-The [well-tested](https://github.com/signmotion/wfile/tree/master/test) package for reading and writing JSON, image, text, binary, XML files across multiple platforms.
+The [well-tested](https://github.com/signmotion/wfile/tree/master/test) package for reading and writing JSON, image, text, binary, and XML files across multiple platforms.
 Can detect [MIME](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) types.
 Independent of the various system delimiters.
 Feel free to use it in your awesome projects.
@@ -90,6 +90,20 @@ f.writeAsImage([content, 'images', 1, 'happy.png']); // path/prefix/images/1/hap
 f.writeAsJsonMap(content, 'map.json');               // { ... }
 f.writeAsJsonList(content, 'list.json');             // [ ... ]
 f.writeAsXml(content, 'data.xml');                   // <data attr="...">...</data>
+```
+
+### Identify the MIME type
+
+```dart
+final f = WFile('image.webp');
+
+f.application(); // false
+f.audio();       // false
+f.binary();      // true
+f.font();        // false
+f.image();       // true
+f.text();        // false
+f.video();       // false
 ```
 
 ## Whats New
