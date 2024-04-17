@@ -177,11 +177,46 @@ void main() {
     });
 
     test('text/markdown', () {
-      expect(f.mime('README.md'), 'text/markdown');
+      expect(f.mime('a/README.md'), 'text/markdown');
     });
 
     test('text/plain', () {
       expect(f.mime('happy.txt'), 'text/plain');
+    });
+  });
+
+  group('type file detection', () {
+    test('image', () {
+      final f = WFile('test/data/a/image.jpg');
+      expect(f.application(), isFalse);
+      expect(f.audio(), isFalse);
+      expect(f.binary(), isTrue);
+      expect(f.font(), isFalse);
+      expect(f.image(), isTrue);
+      expect(f.text(), isFalse);
+      expect(f.video(), isFalse);
+    });
+
+    test('text markdown', () {
+      final f = WFile('test/data/a/README.md');
+      expect(f.application(), isFalse);
+      expect(f.audio(), isFalse);
+      expect(f.binary(), isFalse);
+      expect(f.font(), isFalse);
+      expect(f.image(), isFalse);
+      expect(f.text(), isTrue);
+      expect(f.video(), isFalse);
+    });
+
+    test('text plain', () {
+      final f = WFile('test/data/happy.txt');
+      expect(f.application(), isFalse);
+      expect(f.audio(), isFalse);
+      expect(f.binary(), isFalse);
+      expect(f.font(), isFalse);
+      expect(f.image(), isFalse);
+      expect(f.text(), isTrue);
+      expect(f.video(), isFalse);
     });
   });
 }
