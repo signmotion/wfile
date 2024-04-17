@@ -25,9 +25,12 @@ mixin CanWorkWithFile on Object {
 
   void counstructPath({bool? hasFile}) => counstructPathToFile(path);
 
-  static void counstructPathToFile(String pathToFile, {bool? hasFile}) {
-    hasFile ??= ph.extension(pathToFile).isNotEmpty;
-    final dir = hasFile ? ph.dirname(pathToFile) : pathToFile;
+  /// When [asFolder] is `true`, [pathToFile] was a path to folder.
+  static void counstructPathToFile(
+    String pathToFile, {
+    bool asFolder = false,
+  }) {
+    final dir = asFolder ? pathToFile : ph.dirname(pathToFile);
     Directory(dir).createSync(recursive: true);
   }
 
