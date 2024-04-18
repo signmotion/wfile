@@ -34,8 +34,9 @@ mixin TypeFileResolver on CanWorkWithFile {
 
     // check if the file contains any non-printable characters
     final bytes = readAsBytes(pathToFile)!;
+    const spices = [0xa, 0xd];
     for (final byte in bytes) {
-      if ((byte < 0x20 || byte > 0x7f) && ![0xa, 0xd].contains(byte)) {
+      if ((byte < 0x20 || byte > 0x7f) && !spices.contains(byte)) {
         // file is "binary"
         return '';
       }
