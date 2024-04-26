@@ -174,6 +174,20 @@ mixin CanWorkWithFile on Object {
   ]) =>
       writeAsText(xml.toXmlString(pretty: pretty));
 
+  /// Returns a link to copied file.
+  WFile copy(dynamic from, dynamic to) {
+    final pfrom = join(from);
+    if (Directory(pfrom).existsSync()) {
+      throw UnimplementedError('Can work with file only.');
+    }
+
+    final pto = join(to);
+    counstructPathToFile(pto);
+    final copied = File(pfrom).copySync(pto);
+
+    return WFile(copied);
+  }
+
   void delete([dynamic pathToFile]) {
     final pf = join(pathToFile);
     if (existsDir(pathToFile)) {

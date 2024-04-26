@@ -161,6 +161,68 @@ void main() {
     expect(() => f.readAsXml('file.xml'), ematch);
   });
 
+  group('copy file', () {
+    final f = WFile('test/data/a');
+
+    test('new folder, same name, not exists', () {
+      final r = f.copy('README.md', '../../_output/copy/README.md');
+      expect(r.existsFile(), isTrue);
+      f.delete('../../_output/copy');
+    });
+
+    test('same folder, new name, not exists', () {
+      final r = f.copy('README.md', 'Copy of README.md');
+      expect(r.existsFile(), isTrue);
+      r.delete();
+    });
+
+    test('new folder, same name, exists', () {
+      var r = f.copy('README.md', '../../_output/copy/README.md');
+      r = f.copy('README.md', '../../_output/copy/README.md');
+      expect(r.existsFile(), isTrue);
+      f.delete('../../_output/copy');
+    });
+
+    test('same folder, new name, exists', () {
+      var r = f.copy('README.md', 'Copy of README.md');
+      r = f.copy('README.md', 'Copy of README.md');
+      expect(r.existsFile(), isTrue);
+      r.delete();
+    });
+  });
+
+  /* TODO(sign)
+  group('copy folder', () {
+    final f = WFile('test/data');
+
+    test('new folder, same name, not exists', () {
+      final r = f.copy('a', '../../_output/copy/a');
+      expect(r.existsDir(), isTrue);
+      f.delete('../../_output/copy');
+    });
+
+    test('same folder, new name, not exists', () {
+      final r = f.copy('a', 'Copy of a');
+      expect(r.existsDir(), isTrue);
+      r.delete();
+    });
+
+    test('new folder, same name, exists', () {
+      var r = f.copy('a', '../../_output/copy/a');
+      r = f.copy('a', '../../_output/copy/a');
+      expect(r.existsDir(), isTrue);
+      f.delete('../../_output/copy');
+    });
+
+    test('same folder, new name, exists', () {
+      var r = f.copy('a', 'Copy of a');
+      r = f.copy('a', 'Copy of a');
+      expect(r.existsDir(), isTrue);
+      r.delete();
+    });
+  }, tags: ['current']);
+  */
+
   group('mime', () {
     final f = WFile('test/data');
 
