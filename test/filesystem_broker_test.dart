@@ -6,8 +6,7 @@ import 'package:wfile/wfile.dart';
 
 void main() {
   group('FilesystemBroker Text', () {
-    final outputPath =
-        ph.join('test', '_output', 'filesystem_broker_test', 'text');
+    final outputPath = ph.join('_output', 'filesystem_broker_test', 'text');
     final broker = TextFilesystemBroker(outputPath);
 
     const key = '1.txt';

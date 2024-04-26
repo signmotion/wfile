@@ -234,9 +234,9 @@ void main() {
     final f = WFile('test/data/a');
 
     test('new folder, same name, not exists', () {
-      final r = f.copy('README.md', '../../_output/copy/README.md');
+      final r = f.copy('README.md', '../../../_output/copy/README.md');
       expect(r.existsFile(), isTrue);
-      f.delete('../../_output/copy');
+      f.delete('../../../_output/copy');
     });
 
     test('same folder, new name, not exists', () {
@@ -246,10 +246,10 @@ void main() {
     });
 
     test('new folder, same name, exists', () {
-      var r = f.copy('README.md', '../../_output/copy/README.md');
-      r = f.copy('README.md', '../../_output/copy/README.md');
+      var r = f.copy('README.md', '../../../_output/copy/README.md');
+      r = f.copy('README.md', '../../../_output/copy/README.md');
       expect(r.existsFile(), isTrue);
-      f.delete('../../_output/copy');
+      f.delete('../../../_output/copy');
     });
 
     test('same folder, new name, exists', () {
