@@ -182,6 +182,7 @@ mixin CanWorkWithFile on Object {
     }
 
     final pto = join(to);
+    WFile(pto).delete();
     counstructPathToFile(pto);
     final copied = File(pfrom).copySync(pto);
 
