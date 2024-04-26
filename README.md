@@ -67,6 +67,7 @@ final f = WFile(sourcePath);
 
 // get a varios content from files with respect to [sourcePath]
 f.readAsText('text.txt');
+f.readAsTextLines('lines.txt');            // <String>[...]
 f.readAsBytes('bytes.bin');
 f.readAsImage('images/1/happy.png');       // path/prefix/images/1/happy.png
 f.readAsImage(['images', 1, 'happy.png']); // path/prefix/images/1/happy.png

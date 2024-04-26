@@ -143,6 +143,9 @@ void main() {
     expect(f.readAsText('a/file.txt'), isNull);
     expect(f.readAsText(['a', 'file.txt']), isNull);
 
+    expect(f.readAsTextLines('a/file.txt'), isNull);
+    expect(f.readAsTextLines(['a', 'file.txt']), isNull);
+
     expect(f.readAsXml('a/file.xml'), isNull);
     expect(f.readAsXml(['a', 'file.xml']), isNull);
   });
@@ -158,6 +161,7 @@ void main() {
     expect(() => f.readAsJsonListString('list.json'), ematch);
     expect(() => f.readAsImage('image.webp'), ematch);
     expect(() => f.readAsText('file.txt'), ematch);
+    expect(() => f.readAsTextLines('file.txt'), ematch);
     expect(() => f.readAsXml('file.xml'), ematch);
   });
 

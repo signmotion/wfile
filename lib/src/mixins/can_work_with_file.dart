@@ -126,6 +126,15 @@ mixin CanWorkWithFile on Object {
         (file) => file.readAsStringSync(encoding: encoding),
       );
 
+  List<String>? readAsTextLines([
+    dynamic pathToFile,
+    Encoding encoding = utf8,
+  ]) =>
+      readOrDefaults(
+        pathToFile,
+        (file) => file.readAsLinesSync(encoding: encoding),
+      );
+
   XmlDocument? readAsXml([dynamic pathToFile]) => readOrDefaults(
         pathToFile,
         (file) => XmlDocument.parse(file.readAsStringSync()),
