@@ -8,9 +8,9 @@ void main() {
   // read a content
   print(f.readAsText('happy.txt'));
 
-  // identiry a type
+  // identify a type
   print(f.binary('image.webp'));
 
-  // identiry the MIME type
+  // identify the MIME type
   print(f.mime('image.webp'));
 }
