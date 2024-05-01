@@ -1,33 +1,33 @@
 # WFile
 
+![SDK version](https://badgen.net/pub/sdk-version/wfile?style=for-the-badge)
+![Supported platforms](https://badgen.net/pub/flutter-platform/wfile?style=for-the-badge)
+![Supported SDKs](https://badgen.net/pub/dart-platform/wfile?style=for-the-badge)
+
 ![Cover - WFile](https://raw.githubusercontent.com/signmotion/wfile/master/images/cover.webp)
 
-[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Pub Package](https://img.shields.io/pub/v/wfile.svg?logo=dart&logoColor=00b9fc&color=blue)](https://pub.dartlang.org/packages/wfile)
-[![Code Size](https://img.shields.io/github/languages/code-size/signmotion/wfile?logo=github&logoColor=white)](https://github.com/signmotion/wfile)
-[![Publisher](https://img.shields.io/pub/publisher/wfile)](https://pub.dev/publishers/syrokomskyi.com)
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Pub Package](https://img.shields.io/pub/v/wfile.svg?logo=dart&logoColor=00b9fc&color=blue&style=for-the-badge)](https://pub.dartlang.org/packages/wfile)
+[![Code Size](https://img.shields.io/github/languages/code-size/signmotion/wfile?logo=github&logoColor=white&style=for-the-badge)](https://github.com/signmotion/wfile)
+[![Publisher](https://img.shields.io/pub/publisher/wfile?style=for-the-badge)](https://pub.dev/publishers/syrokomskyi.com)
 
-![SDK version](https://badgen.net/pub/sdk-version/wfile)
-![Supported platforms](https://badgen.net/pub/flutter-platform/wfile)
-![Supported SDKs](https://badgen.net/pub/dart-platform/wfile)
-
-[![Build Status](https://img.shields.io/github/actions/workflow/status/signmotion/wfile/dart-ci.yml?logo=github-actions&logoColor=white)](https://github.com/signmotion/wfile/actions)
-[![Pull Requests](https://img.shields.io/github/issues-pr/signmotion/wfile?logo=github&logoColor=white)](https://github.com/signmotion/wfile/pulls)
-[![Issues](https://img.shields.io/github/issues/signmotion/wfile?logo=github&logoColor=white)](https://github.com/signmotion/wfile/issues)
-[![Pub Score](https://img.shields.io/pub/points/wfile?logo=dart&logoColor=00b9fc)](https://pub.dev/packages/wfile/score)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/signmotion/wfile/dart-ci.yml?logo=github-actions&logoColor=white&style=for-the-badge)](https://github.com/signmotion/wfile/actions)
+[![Pull Requests](https://img.shields.io/github/issues-pr/signmotion/wfile?logo=github&logoColor=white&style=for-the-badge)](https://github.com/signmotion/wfile/pulls)
+[![Issues](https://img.shields.io/github/issues/signmotion/wfile?logo=github&logoColor=white&style=for-the-badge)](https://github.com/signmotion/wfile/issues)
+[![Pub Score](https://img.shields.io/pub/points/wfile?logo=dart&logoColor=00b9fc&style=for-the-badge)](https://pub.dev/packages/wfile/score)
 
 The [well-tested](https://github.com/signmotion/wfile/tree/master/test) package for reading and writing JSON, image, text, binary, and XML files across multiple platforms.
 Can detect [MIME](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) types.
 Independent of the various system delimiters.
 Feel free to use it in your awesome project.
 
-[![CodeFactor](https://codefactor.io/repository/github/signmotion/wfile/badge)](https://codefactor.io/repository/github/signmotion/wfile)
+[![CodeFactor](https://codefactor.io/repository/github/signmotion/wfile/badge?style=for-the-badge)](https://codefactor.io/repository/github/signmotion/wfile)
 
 Share some ❤️ and star repo to support the project.
 
 _If you write an article about **WFile** or any of [these](https://pub.dev/packages?q=publisher%3Asyrokomskyi.com&sort=updated) packages, let me know and I'll post the URL of the article in the **README**_ 🤝
 
-## Motivation
+## 🔥 Motivation
 
 1. We need to keep the file paths consistent in live cross-platform projects. I mean the dividers for Linux and Windows. I used to use [path](https://pub.dev/packages/path) extensively (thanks to the [authors](https://pub.dev/publishers/dart.dev/packages)), but we got some boilerplate with it.
 
@@ -56,7 +56,7 @@ File(p).writeAsBytesSync(bytes);
 
 Thanks [s00prtr00pr](https://reddit.com/user/s00prtr00pr).
 
-## 🚀Usage
+## 🚀 Usage
 
 ### Read Files
 
@@ -121,11 +121,11 @@ f.video();       // false
 f.mime();  // image/webp
 ```
 
-## 👁️What's New
+## ✨ What's New
 
 Look at [changelog](https://pub.dev/packages/wfile/changelog).
 
-## 🙋‍♀️🙋‍♂️Welcome
+## 👋 Welcome
 
 If you encounter any problems, feel free to [open an issue](https://github.com/signmotion/wfile/issues). If you feel the package is missing a feature, please [raise a ticket](https://github.com/signmotion/wfile/issues) on Github and I'll look into it. Requests and suggestions are warmly welcome. Danke!
 
@@ -155,7 +155,7 @@ And here is a curated list of how you can help:
 - Report bugs and scenarios that are difficult to implement.
 - Implement new features by making a pull-request.
 
-## 🕧TODO (perhaps)
+## ✅ TODO (perhaps)
 
 Once you start using the **WFile**, it will become easy to choose the functionality to contribute. But if you already get everything you need from this package but have some free time, let me write here what I have planned:
 
