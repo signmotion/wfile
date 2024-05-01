@@ -3,14 +3,17 @@
 All notable changes to the project `WFile` will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 0.5.2
+## 0.5.3
 
 - Changed the style for shields in `README`.
 - Added a link to [Awesome Flutter](https://github.com/Solido/awesome-flutter) in `example/README`.
 - Stabilized CI for tests.
 - Excluded some folders from the analysis.
-- Updated cover.
 - Upgraded dependencies.
+
+## 0.5.2
+
+- Updated cover.
 
 ## 0.5.1
 
